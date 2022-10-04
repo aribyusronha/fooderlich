@@ -13,6 +13,7 @@ class Home extends StatefulWidget{
 
 class _HomeState extends State<Home>{
     int _selectedIndex = 0;
+    
 
     static List<Widget> pages = <Widget>[
         const Card1(),
@@ -23,6 +24,7 @@ class _HomeState extends State<Home>{
     void _onItemTapped(int index){
         setState(() {
             _selectedIndex = index;
+            
         });
     }
 
@@ -37,6 +39,7 @@ class _HomeState extends State<Home>{
             ),
             body: pages[_selectedIndex],
             bottomNavigationBar: BottomNavigationBar(
+                unselectedItemColor: Colors.blueGrey,
                 selectedItemColor: Colors.cyan,
                 currentIndex: _selectedIndex,
                 onTap: _onItemTapped,

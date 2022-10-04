@@ -27,7 +27,7 @@ class Card1 extends StatelessWidget{
                     children: [
                         Text(
                             category,
-                            style: FooderlichTheme.lightTextTheme.bodyText1,
+                            style: FooderlichTheme.darkTextTheme.bodyText1,
                         ),
                         Positioned(
                             top: 20,
@@ -41,7 +41,7 @@ class Card1 extends StatelessWidget{
                             right: 0,
                             child: Text(
                                 description,
-                                style: FooderlichTheme.darkTextTheme.bodyText2,
+                                style: FooderlichTheme.darkTextTheme.bodyText1,
                             ),
                         ),
                         Positioned(

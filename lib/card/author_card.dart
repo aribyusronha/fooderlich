@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import '../fooderlich_theme.dart';
+import '../inherited_fav.dart';
 import 'circle_image.dart';
 
-class AuthorCard extends StatelessWidget{
+class AuthorCard extends StatefulWidget{
     final String authorName;
     final String title;
     final ImageProvider imageProvider;
@@ -13,46 +14,57 @@ class AuthorCard extends StatelessWidget{
         required this.title, 
         required this.imageProvider,
     }):super(key: key);
-        
+
+  @override
+  State<AuthorCard> createState() => _AuthorCardState();
+}
+
+class _AuthorCardState extends State<AuthorCard> {
+    //bool _isFavorite = false;
+
     @override
     Widget build(BuildContext context) {
+        FavProvider? favProvider = FavProvider.of(context);
+
         return Container(
-            padding: const EdgeInsets.all(16),
-            child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                    Row(
-                        children: [
-                            CircleImage(
-                                imageProvider: imageProvider,
-                                imageRadius: 28,
-                            ),
-                            const SizedBox(width: 8),
-                            Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                    Text(
-                                        authorName,
-                                        style: FooderlichTheme.lightTextTheme.headline2,
-                                    ),
-                                    Text(
-                                        title,
-                                        style: FooderlichTheme.lightTextTheme.headline3,
-                                    ),
-                                ],
-                            )
-                        ]
-                    ),
-                    IconButton(
-                        icon: const Icon(Icons.favorite_border),
-                        iconSize: 30,
-                        color: Colors.grey[400],
-                        onPressed: (){
-                            const snackBar = SnackBar(content: Text('Press Favorite'));
-                            ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                        },
-                    )
-                ]),
+                padding: const EdgeInsets.all(16),
+                child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                        Row(
+                            children: [
+                                CircleImage(
+                                    imageProvider: widget.imageProvider,
+                                    imageRadius: 28,
+                                ),
+                                const SizedBox(width: 8),
+                                Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                        Text(
+                                            widget.authorName,
+                                            style: FooderlichTheme.lightTextTheme.headline2,
+                                        ),
+                                        Text(
+                                            widget.title,
+                                            style: FooderlichTheme.lightTextTheme.headline3,
+                                        ),
+                                    ],
+                                )
+                            ]
+                        ),
+                        IconButton(
+                            icon: Icon(favProvider!.favMod.isFavorite? Icons.favorite : Icons.favorite_border_outlined),
+                            iconSize: 30,
+                            color: Colors.red,
+                            onPressed: (){
+                                setState(() {
+                                    favProvider.favMod.favTap();
+                                });
+                            },
+                        ),
+                    ]
+                ),
         );
     }
 }
