@@ -22,7 +22,7 @@ class MockFooderlichService {
         if (json['recipes'] != null) {
             final recipes = <ExploreRecipe>[];
             json['recipes'].forEach((v) {
-                recipes.add(ExploreRecipe.fromJson(v));
+                recipes.add(ExploreRecipe.fromJSON(v));
             });
             return recipes;
         } 
@@ -43,7 +43,7 @@ class MockFooderlichService {
         if (json['feed'] != null) {
             final posts = <Post>[];
             json['feed'].forEach((v) {
-                posts.add(Post.fromJson(v));
+                posts.add(Post.fromJSON(v));
             });
             return posts;
         } 
@@ -64,7 +64,7 @@ class MockFooderlichService {
         if (json['recipes'] != null) {
             final recipes = <SimpleRecipe>[];
             json['recipes'].forEach((v) {
-                recipes.add(SimpleRecipe.fromJson(v));
+                recipes.add(SimpleRecipe.fromJSON(v));
             });
             return recipes;
         } 
