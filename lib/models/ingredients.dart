@@ -1,14 +1,14 @@
 part of 'explore_recipe.dart';
 
 class Ingredients {
-    String imageUrl;
-    String title;
-    String source;
+    late String imageUrl;
+    late String title;
+    late String source;
 
     Ingredients({
-        this.imageUrl,
-        this.title,
-        this.source,
+        required this.imageUrl,
+        required this.title,
+        required this.source,
     });
 
     Ingredients.fromJSON(Map<String, dynamic> json) {

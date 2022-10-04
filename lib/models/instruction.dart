@@ -1,14 +1,14 @@
 part of 'explore_recipe.dart';
 
 class Instruction {
-    String imageUrl;
-    String description;
-    int durationInMinutes;
+    late String imageUrl;
+    late String description;
+    late int durationInMinutes;
 
     Instruction({
-        this.imageUrl,
-        this.description,
-        this.durationInMinutes,
+        required this.imageUrl,
+        required this.description,
+        required this.durationInMinutes,
     });
 
     Instruction.fromJSON(Map<String, dynamic> json) {
