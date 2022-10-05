@@ -7,8 +7,9 @@ class MockFooderlichService {
     Future<ExploreData> getExploreData() async {
         final todayRecipes = await _getTodayRecipes();
         final friendPosts = await _getFriendFeed();
+        final simpleRecipes = await getRecipes();
         
-        return ExploreData(todayRecipes, friendPosts);
+        return ExploreData(todayRecipes, friendPosts, simpleRecipes);
     }
     // Get sample explore recipes json to display in ui
     Future<List<ExploreRecipe>> _getTodayRecipes() async {

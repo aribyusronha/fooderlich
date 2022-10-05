@@ -15,6 +15,6 @@ class Post {
         profileImageUrl = json['profileImageUrl'];
         comment = json['comment'];
         foodPictureUrl = json['foodPictureUrl'];
-        timeStamp = json['timeStamp'];
+        timeStamp = json['timestamp'];
     }
 }
