@@ -12,4 +12,6 @@ class TabManager extends ChangeNotifier{
         selectedTab = 1;
         notifyListeners();
     }
+
+  static of(BuildContext context) {}
 }

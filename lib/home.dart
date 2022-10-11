@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fooderlich/screens/grocery_screen.dart';
 import 'package:fooderlich/screens/recipes_screen.dart';
+import 'package:provider/provider.dart';
 import 'fooderlich_theme.dart';
 import 'package:fooderlich/models/explore_recipe.dart';
 import 'components/components.dart';
@@ -34,19 +35,22 @@ class _HomeState extends State<Home>{
 
     @override
     Widget build(BuildContext context) {
-        return Scaffold(
+        return Consumer<TabManager>(builder: (context,tabManager ,child){
+            return Scaffold(
             appBar: AppBar(
                 title: Text(
                     'Fooderlich',
                     style: Theme.of(context).textTheme.headline1,
                 ),
             ),
-            body: pages[_selectedIndex],
+            body: pages[tabManager.selectedTab],
             bottomNavigationBar: BottomNavigationBar(
                 unselectedItemColor: Colors.blueGrey,
                 selectedItemColor: Colors.cyan,
-                currentIndex: _selectedIndex,
-                onTap: _onItemTapped,
+                currentIndex: tabManager.selectedTab,
+                onTap: (index){
+                    tabManager.goToTab(index);
+                },
                 items: const <BottomNavigationBarItem>[
                     BottomNavigationBarItem(
                         icon: Icon(Icons.explore),
@@ -61,8 +65,7 @@ class _HomeState extends State<Home>{
                         label: 'To Buy',
                     ),
                 ],
-            ),
-
-        );
+            ),);
+        });
     }
 }
