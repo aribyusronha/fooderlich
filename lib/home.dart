@@ -22,7 +22,7 @@ class _HomeState extends State<Home>{
     static List<Widget> pages = <Widget>[
         ExploreScreen(),
         RecipeScreen(),
-        GroceryScreen(),
+        const GroceryScreen(),
 
     ];
 
