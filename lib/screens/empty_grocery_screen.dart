@@ -30,11 +30,12 @@ class EmptyGroceryScreen extends StatelessWidget{
                         ),
                         MaterialButton(
                             textColor: Colors.white,
-                            child: const Text('Browse Recipes'),
+                            color: Colors.cyan,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(30.0),
                             ),
                             onPressed: () {},
+                            child: const Text('Browse Recipes'),
                             )
                     ],
                 ),

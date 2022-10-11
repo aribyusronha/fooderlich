@@ -15,7 +15,7 @@ class RecipesGridView extends StatelessWidget {
                 //Ubah SilverGridDelegateWithFixedCrossAxisCount menjadi SliverGridDelegateWithMaxCrossAxisExtent
                 //Pada SilverGridDelegateWithMaxCrossAxisExtent memiiki atribut required maxCrossAxisExtent
                 gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-                    maxCrossAxisExtent: 800.0,
+                    maxCrossAxisExtent: 400.0,
                     mainAxisSpacing: 10.0,
                     crossAxisSpacing: 10.0,
                     childAspectRatio: 1.0,
