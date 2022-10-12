@@ -24,6 +24,9 @@ class MyApp extends StatelessWidget {
                 providers: [
                     ChangeNotifierProvider(
                         create: (context) => TabManager(),
+                    ),
+                    ChangeNotifierProvider(
+                        create: (context) => GroceryManager(),
                     )
                 ],
                 child: const Home(),
