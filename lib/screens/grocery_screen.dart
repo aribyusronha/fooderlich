@@ -1,10 +1,9 @@
-import 'dart:js';
-
 import 'package:flutter/material.dart';
 import 'package:fooderlich/models/models.dart';
 import 'package:fooderlich/screens/empty_grocery_screen.dart';
 import 'package:provider/provider.dart';
 import '../models/models.dart';
+import 'grocery_item_screen.dart';
 
 class GroceryScreen extends StatelessWidget{
   const GroceryScreen({super.key});
@@ -28,7 +27,24 @@ class GroceryScreen extends StatelessWidget{
     return Scaffold(
         floatingActionButton: FloatingActionButton(
             onPressed: () {
-                
+                final manager = Provider.of<GroceryManager>(
+                context,
+                listen: false);
+                // 2
+                Navigator.push(
+                context,
+                // 3
+                MaterialPageRoute(
+                    // 4
+                    builder: (context) => GroceryItemScreen(
+                    // 5
+                    onCreate: (item) {
+                        // 6
+                        manager.addItem(item);
+                        // 7
+                        Navigator.pop(context);
+                    },
+                    ),),);
             },
             child: const Icon(Icons.add),
         ),
