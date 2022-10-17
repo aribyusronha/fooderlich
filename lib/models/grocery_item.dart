@@ -7,7 +7,7 @@ enum Importance {
 }
 
 class GroceryItem {
-    final String? id;
+    final String id;
     final String? name;
     final Importance? importance;
     final Color? color;
@@ -16,7 +16,7 @@ class GroceryItem {
     final bool? isComplete;
 
     GroceryItem({
-        this.id,
+        required this.id,
         this.name,
         this.importance,
         this.color,
